@@ -16,4 +16,12 @@ use Inertia\Inertia;
 
 Route::get('/', function () {
     return Inertia::render('HomePage');
-});
+})->name('home');
+
+Route::get('/menus', function () {
+    return Inertia::render('MenusPage');
+})->name('menus');
+
+Route::get('/dishes', function () {
+    return Inertia::render('DishesPage');
+})->name('dishes');
