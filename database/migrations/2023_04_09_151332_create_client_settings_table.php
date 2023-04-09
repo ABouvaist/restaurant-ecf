@@ -9,6 +9,7 @@ return new class extends Migration {
     {
         Schema::create('client_settings', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('client_id')->constrained('users');
             $table->integer('numberOfGuests');
             $table->json('allergies');
             $table->timestamps();
