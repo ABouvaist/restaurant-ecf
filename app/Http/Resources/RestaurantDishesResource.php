@@ -13,11 +13,11 @@ class RestaurantDishesResource extends JsonResource
         return [
             'id' => $this->id,
             'shown' => $this->shown,
-            'created_at' => $this->created_at,
+/*            'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'categories_count' => $this->categories_count,
             'dishes_count' => $this->dishes_count,
-            'unique_categories_count' => $this->unique_categories_count,
+            'unique_categories_count' => $this->unique_categories_count,*/
 
             'categories' => DishCategoryResource::collection($this->whenLoaded('categories')),
             'dishes' => DishResource::collection($this->whenLoaded('dishes')),

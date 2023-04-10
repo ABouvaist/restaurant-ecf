@@ -15,8 +15,8 @@ class DishResource extends JsonResource
             'title' => $this->title,
             'description' => $this->description,
             'price' => $this->price,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
+/*            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,*/
 
             'restaurant_dishes_id' => $this->restaurant_dishes_id,
             'dish_category_id' => $this->dish_category_id,

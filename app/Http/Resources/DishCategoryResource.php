@@ -13,9 +13,9 @@ class DishCategoryResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'created_at' => $this->created_at,
+/*            'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-            'dishes_count' => $this->dishes_count,
+            'dishes_count' => $this->dishes_count,*/
 
             'dishes' => DishResource::collection($this->whenLoaded('dishes')),
         ];
