@@ -38,7 +38,7 @@ class RestaurantDishes extends Model
 
     public function categories(): HasManyThrough
     {
-        return $this->hasManyThrough(DishCategory::class, Dish::class);
+        return $this->hasManyThrough(DishCategory::class, Dish::class, 'restaurant_dishes_id', 'id', 'id', 'dish_category_id');
     }
 
     public function uniqueCategories(): HasManyThrough
