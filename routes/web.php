@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\RestaurantMenu;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -19,7 +20,9 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/menus', function () {
-    return Inertia::render('MenusPage');
+    return Inertia::render('MenusPage', [
+        'restaurantMenus' => RestaurantMenu::with('menuFormulas:id,restaurant_menu_id,name,description,price')->get(['id', 'title']),
+    ]);
 })->name('menus');
 
 Route::get('/dishes', function () {
