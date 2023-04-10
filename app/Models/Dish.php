@@ -18,13 +18,23 @@ class Dish extends Model
         'price',
     ];
 
+    public function dishCategory(): BelongsTo
+    {
+        return $this->belongsTo(DishCategory::class);
+    }
+
     public function category(): BelongsTo
     {
-        return $this->belongsTo(DishCategory::class, 'dish_category_id');
+        return $this->dishCategory();
+    }
+
+    public function restaurantDishes(): BelongsTo
+    {
+        return $this->belongsTo(RestaurantDishes::class);
     }
 
     public function menu(): BelongsTo
     {
-        return $this->belongsTo(RestaurantDishes::class, 'restaurant_dish_id');
+        return $this->restaurantDishes();
     }
 }

@@ -16,7 +16,7 @@ class DishFactory extends Factory
     {
         return [
             'dish_category_id' => DishCategory::factory(),
-            'restaurant_dish_id' => RestaurantDishes::factory(),
+            'restaurant_dishes_id' => RestaurantDishes::factory(),
             'title' => $this->faker->foodName(),
             'description' => $this->faker->sentence(),
             'price' => $this->faker->randomFloat(2, 5, 20),
