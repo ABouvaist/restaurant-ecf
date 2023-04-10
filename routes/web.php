@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\RestaurantDishesController;
+use App\Models\Image;
 use App\Models\RestaurantMenu;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -17,7 +19,9 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return Inertia::render('HomePage');
+    return Inertia::render('HomePage', [
+        'images' => Image::all(),
+    ]);
 })->name('home');
 
 Route::get('/menus', function () {
@@ -27,3 +31,5 @@ Route::get('/menus', function () {
 })->name('menus');
 
 Route::get('/dishes', [RestaurantDishesController::class, 'showActive'])->name('dishes');
+
+Route::post('/gallery/upload', [ImageController::class, 'store'])->name('gallery.upload');
