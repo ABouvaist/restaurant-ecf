@@ -1,9 +1,7 @@
 <template>
-    <Nav>
+    <Nav/>
 
-    </Nav>
-
-    <main>
+    <main class="container">
         <slot />
     </main>
 </template>
