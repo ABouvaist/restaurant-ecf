@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RestaurantDishesController;
 use App\Models\RestaurantMenu;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -25,6 +26,4 @@ Route::get('/menus', function () {
     ]);
 })->name('menus');
 
-Route::get('/dishes', function () {
-    return Inertia::render('DishesPage');
-})->name('dishes');
+Route::get('/dishes', [RestaurantDishesController::class, 'showActive'])->name('dishes');
