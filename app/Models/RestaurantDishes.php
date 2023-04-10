@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class RestaurantDishes extends Model
@@ -33,5 +34,15 @@ class RestaurantDishes extends Model
     {
         $this->shown = false;
         $this->save();
+    }
+
+    public function categories(): HasManyThrough
+    {
+        return $this->hasManyThrough(DishCategory::class, Dish::class);
+    }
+
+    public function uniqueCategories(): HasManyThrough
+    {
+        return $this->categories()->distinct();
     }
 }
