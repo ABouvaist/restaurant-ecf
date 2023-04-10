@@ -18,4 +18,22 @@ class RestaurantDishesFactory extends Factory
             'updated_at' => Carbon::now(),
         ];
     }
+
+    public function active(): Factory
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'shown' => true,
+            ];
+        });
+    }
+
+    public function inactive(): Factory
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'shown' => false,
+            ];
+        });
+    }
 }
