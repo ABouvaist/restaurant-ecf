@@ -9,7 +9,7 @@
         </div>
 
 
-        <nav v-show="menu" class="absolute right-0 h-full shadow-2xl bg-white rounded-3xl flex flex-col items-center w-1/2">
+        <nav v-show="menu" class="absolute right-0 h-full shadow-2xl bg-white rounded-3xl flex flex-col items-center w-1/2 z-20">
             <ul class="space-y-6 pt-6">
                 <li>
                     <Link :href="route('home')">Accueil</Link>
