@@ -38,6 +38,19 @@ import {ref} from "vue";
 
 
 let menu = ref(false);
+
+const page = usePage();
+const user = computed(() => page.props.auth.user)
+
+
+watch(
+    () => usePage().url,
+    (url) => {
+        menu.value = false;
+    }
+)
+
+
 </script>
 
 <style scoped>
