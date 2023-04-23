@@ -9,16 +9,19 @@
         </div>
 
 
-        <nav v-show="menu" class="absolute right-0 h-full shadow-2xl bg-white rounded-3xl flex flex-col items-center w-1/2 z-20">
-            <ul class="space-y-6 pt-6">
+        <nav v-show="menu" class="absolute right-0 h-screen bg-platinum flex flex-col items-center w-full z-50">
+            <ul class="space-y-12 pt-12">
                 <li>
-                    <Link :href="route('home')">Accueil</Link>
+                    <NavLink :active="$page.component === 'HomePage'" :href="route('home')">Accueil</NavLink>
                 </li>
                 <li>
-                    <Link :href="route('menus')">Menus</Link>
+                    <NavLink :active="$page.component === 'MenusPage'" :href="route('menus')">Menus</NavLink>
                 </li>
                 <li>
-                    <Link :href="route('dishes')">Carte</Link>
+                    <NavLink :active="$page.component === 'DishesPage'" :href="route('dishes')">Carte</NavLink>
+                </li>
+                <li>
+                    <NavLink :active="$page.component === 'Auth/Login'" :href="route('login')">Connexion</NavLink>
                 </li>
             </ul>
         </nav>
@@ -27,9 +30,13 @@
 </template>
 
 <script setup>
-import { Link } from '@inertiajs/vue3';
 import AppLogo from '@/Components/AppLogo.vue';
+import NavLink from "@/Components/NavLink.vue";
+import {computed, watch} from "vue";
+import {usePage} from "@inertiajs/vue3";
 import {ref} from "vue";
+
+
 let menu = ref(false);
 </script>
 
