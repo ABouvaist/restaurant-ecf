@@ -13,8 +13,8 @@ class ImageFactory extends Factory
     {
         return [
             'title' => $this->faker->word(),
-            'url' => $this->faker->url(),
-            'shown' => $this->faker->boolean(),
+            'url' => "https://picsum.photos/500/300",
+            'shown' => true,
         ];
     }
 }

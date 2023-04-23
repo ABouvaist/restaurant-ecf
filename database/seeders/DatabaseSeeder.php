@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Dish;
 use App\Models\DishCategory;
+use App\Models\Image;
 use App\Models\RestaurantDishes;
 use App\Models\RestaurantMenu;
 use Illuminate\Database\Seeder;
@@ -44,5 +45,7 @@ class DatabaseSeeder extends Seeder
                 ->for($restaurantDish->first())
                 ->create();
         });
+
+        Image::factory(10)->create();
     }
 }
