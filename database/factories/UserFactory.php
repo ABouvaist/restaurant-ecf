@@ -45,4 +45,14 @@ class UserFactory extends Factory
             'role' => User::ADMIN,
         ]);
     }
+
+    public function testClient(): static
+    {
+        return $this->state(fn(array $attributes) => [
+            'first_name' => fake()->firstName(),
+            'last_name' => fake()->lastName(),
+            'role' => User::CLIENT,
+            'email' => "test@test.fr",
+        ]);
+    }
 }

@@ -8,6 +8,7 @@ use App\Models\DishCategory;
 use App\Models\Image;
 use App\Models\RestaurantDishes;
 use App\Models\RestaurantMenu;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -23,6 +24,11 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        User::factory()
+            ->count(1)
+            ->testClient()
+            ->create();
 
         RestaurantMenu::factory()
             ->count(10)
