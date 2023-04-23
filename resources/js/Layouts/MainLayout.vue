@@ -1,13 +1,13 @@
 <template>
-    <Nav/>
+    <main class="container min-h-screen bg-platinum">
+        <Nav/>
 
-    <main class="container">
         <slot />
     </main>
 </template>
 
 <script setup>
-import Nav from '@/Components/Nav.vue';
+import Nav from "@/Components/Nav.vue";
 </script>
 
 <style scoped>
