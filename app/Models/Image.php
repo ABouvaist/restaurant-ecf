@@ -15,4 +15,8 @@ class Image extends Model
         'url',
         'shown',
     ];
+
+    protected $casts = [
+        'shown' => 'boolean',
+    ];
 }
