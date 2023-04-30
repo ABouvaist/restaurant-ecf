@@ -5,7 +5,10 @@ import { InertiaProgress } from '@inertiajs/progress';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
 import MainLayout from "@/Layouts/MainLayout.vue";
 
+const appName = document.getElementsByTagName('title')[0]?.innerText || "Restaurant Michand"
+
 createInertiaApp({
+    title: (title) => `${title} - ${appName}`,
     resolve: name => {
         const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
         const page = pages[`./Pages/${name}.vue`];
