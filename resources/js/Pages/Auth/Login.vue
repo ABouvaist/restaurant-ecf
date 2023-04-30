@@ -14,10 +14,12 @@
             <button type="submit" class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500" :disabled="form.processing">Login</button>
         </div>
     </form>
+    <Link :href="route('register')" class="m-6 text-moonstone underline">Pas de compte ?</Link>
 </template>
 
 <script setup>
 import {useForm} from "@inertiajs/vue3";
+import {Link} from "@inertiajs/vue3";
 
 let form = useForm({
     email: '',
