@@ -19,9 +19,10 @@
                     <td class="px-6 py-4">{{ format(image.created_at) }}</td>
                     <td class="px-6 py-4">{{ format(image.updated_at) }}</td>
                     <td class="px-6 py-4">
-                        <Link :href="route('images.edit', image.id)">modifier</Link>
+                        <Link :href="route('images.show', image.id)">modifier</Link>
                     </td>
                 </tr>
+
             </tbody>
         </table>
     </div>

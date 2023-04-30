@@ -33,9 +33,11 @@ class ImageController extends Controller
         ]);
     }
 
-    public function show(Image $image)
+    public function show(Image $image): Response
     {
-        return $image;
+        return Inertia::render('Admin/Image', [
+            'image' => $image,
+        ]);
     }
 
     public function update(UpdateImageRequest $request, Image $image): RedirectResponse
@@ -45,10 +47,10 @@ class ImageController extends Controller
         return to_route('images.index');
     }
 
-    public function destroy(Image $image)
+    public function destroy(Image $image): RedirectResponse
     {
         $image->delete();
 
-        return response()->json();
+        return to_route('images.index');
     }
 }
