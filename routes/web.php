@@ -23,6 +23,14 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
 });
 
+Route::middleware('admin')->group(function () {
+    Route::get('/admin', function () {
+        return Inertia::render('Admin/Dashboard');
+    })->name('admin.dashboard');
+
+    Route::resource('/admin/images', ImageController::class);
+});
+
 Route::get('/', function () {
     return Inertia::render('HomePage', [
         'images' => Image::all(),
