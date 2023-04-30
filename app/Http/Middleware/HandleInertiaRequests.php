@@ -2,6 +2,8 @@
 
 namespace App\Http\Middleware;
 
+use App\Http\Resources\OpeningHoursResource;
+use App\Models\OpeningHours;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -40,6 +42,8 @@ class HandleInertiaRequests extends Middleware
             'auth.user' => fn () => $request->user()
                 ? $request->user()->only('first_name', 'last_name')
                 : null,
+
+            'opening_hours' => new OpeningHoursResource(OpeningHours::first()),
         ]);
     }
 }
