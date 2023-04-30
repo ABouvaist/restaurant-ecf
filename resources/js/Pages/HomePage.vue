@@ -15,8 +15,6 @@
 </template>
 
 <script setup>
-import { Link } from '@inertiajs/vue3';
-import FileUpload from "@/Components/FileUpload.vue";
 import Gallery from "@/Components/Gallery.vue";
 
 const props = defineProps(['images'])
