@@ -4,6 +4,7 @@ import { createInertiaApp } from '@inertiajs/vue3';
 import { InertiaProgress } from '@inertiajs/progress';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
 import MainLayout from "@/Layouts/MainLayout.vue";
+import AdminLayout from "@/Layouts/AdminLayout.vue";
 
 const appName = document.getElementsByTagName('title')[0]?.innerText || "Restaurant Michand"
 
@@ -13,7 +14,11 @@ createInertiaApp({
         const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
         const page = pages[`./Pages/${name}.vue`];
 
-        page.default.layout ??= MainLayout;
+        if (name.startsWith('Admin/')) {
+            page.default.layout ??= AdminLayout;
+        }else {
+            page.default.layout ??= MainLayout;
+        }
 
         return page;
     },
