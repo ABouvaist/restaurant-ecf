@@ -69,4 +69,26 @@ class OpeningHours extends Model
     {
         return $this->makeAttribute();
     }
+
+    public function toArray(): array
+    {
+        return [
+            'monday' => $this->monday,
+            'thursday' => $this->thursday,
+            'wednesday' => $this->wednesday,
+            'tuesday' => $this->tuesday,
+            'friday' => $this->friday,
+            'saturday' => $this->saturday,
+            'sunday' => $this->sunday,
+        ];
+    }
+
+    public function uniqueHours(): array
+    {
+        $hours = [];
+        foreach ($this->toArray() as $day => $timeRange) {
+            $hours[] = $timeRange;
+        }
+        return array_unique($hours);
+    }
 }
