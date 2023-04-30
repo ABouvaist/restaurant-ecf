@@ -14,7 +14,8 @@ class TimeRange {
 
     public static function fromString(string $timeRange): TimeRange
     {
-        [$start, $end] = explode(' - ', $timeRange);
+        str_replace(' ', '', $timeRange);
+        [$start, $end] = explode('-', $timeRange);
         $start = Time::fromString($start);
         $end = Time::fromString($end);
         return new TimeRange($start, $end);
