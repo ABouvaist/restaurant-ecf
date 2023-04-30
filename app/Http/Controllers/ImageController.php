@@ -5,12 +5,17 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreImageRequest;
 use App\Http\Requests\UpdateImageRequest;
 use App\Models\Image;
+use Illuminate\Http\RedirectResponse;
+use Inertia\Inertia;
+use Inertia\Response;
 
 class ImageController extends Controller
 {
-    public function index()
+    public function index(): Response
     {
-        return Image::all();
+        return Inertia::render('Admin/Gallery', [
+            'images' => Image::all(),
+        ]);
     }
 
     public function store(StoreImageRequest $request): void
@@ -37,7 +42,7 @@ class ImageController extends Controller
     {
         $image->update($request->validated());
 
-        return $image;
+        return to_route('images.index');
     }
 
     public function destroy(Image $image)
