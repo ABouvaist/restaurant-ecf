@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ImageRequest;
+use App\Http\Requests\StoreImageRequest;
+use App\Http\Requests\UpdateImageRequest;
 use App\Models\Image;
 
 class ImageController extends Controller
@@ -12,7 +13,7 @@ class ImageController extends Controller
         return Image::all();
     }
 
-    public function store(ImageRequest $request)
+    public function store(StoreImageRequest $request): void
     {
         $title = $request->validated('title');
         $image = $request->file('image');
@@ -25,8 +26,6 @@ class ImageController extends Controller
             'url' => $path,
             'shown' => true,
         ]);
-
-        return to_route('home');
     }
 
     public function show(Image $image)
@@ -34,7 +33,7 @@ class ImageController extends Controller
         return $image;
     }
 
-    public function update(ImageRequest $request, Image $image)
+    public function update(UpdateImageRequest $request, Image $image): RedirectResponse
     {
         $image->update($request->validated());
 
