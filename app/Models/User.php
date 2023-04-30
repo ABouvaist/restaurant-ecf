@@ -62,4 +62,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Reservation::class);
     }
+
+    public function isAdmin(): bool
+    {
+        return $this->role === self::ADMIN;
+    }
 }

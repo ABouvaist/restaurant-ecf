@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\{
+    Admin,
     Authenticate,
     EncryptCookies,
     HandleInertiaRequests,
@@ -98,5 +99,6 @@ class Kernel extends HttpKernel
         'signed' => ValidateSignature::class,
         'throttle' => ThrottleRequests::class,
         'verified' => EnsureEmailIsVerified::class,
+        'admin' => Admin::class,
     ];
 }
