@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 
+
+
 Route::middleware('guest')->group(function () {
     Route::get('/login', [LoginController::class, 'create'])->name('login');
     Route::post('/login', [LoginController::class, 'store'])->name('login.store');
@@ -36,3 +38,7 @@ Route::get('/menus', function () {
 Route::get('/dishes', [RestaurantDishesController::class, 'showActive'])->name('dishes');
 
 Route::post('/gallery/upload', [ImageController::class, 'store'])->name('gallery.upload');
+
+Route::get('/booking', function () {
+    return Inertia::render('BookingPage');
+})->name('booking');
