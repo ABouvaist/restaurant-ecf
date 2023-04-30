@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use App\Models\Dish;
 use App\Models\DishCategory;
 use App\Models\Image;
+use App\Models\OpeningHours;
 use App\Models\RestaurantDishes;
 use App\Models\RestaurantMenu;
 use App\Models\User;
@@ -53,5 +54,7 @@ class DatabaseSeeder extends Seeder
         });
 
         Image::factory(10)->create();
+
+        OpeningHours::factory(1)->create();
     }
 }
