@@ -24,7 +24,7 @@ defineProps({
 </script>
 
 <style scoped>
-//The following code is inspired and modified from the original at https://www.w3schools.com/howto/howto_css_switch.asp
+/* The following code is inspired and modified from the original at https://www.w3schools.com/howto/howto_css_switch.asp */
 
 /* The switch - the box around the slider */
 .switch {
