@@ -1,8 +1,6 @@
 <template>
     <form name="upload" @submit.prevent="submit" class="flex flex-col space-y-4">
-        <label for="title">Titre de l'image :</label>
-        <input id="title" type="text" v-model="form.title">
-        <span v-if="form.errors.title" class="text-red-600">{{ form.errors.title }}</span>
+        <InputText v-model="form.title" name="Titre de l'image" :error="form.errors.title" />
         <label for="image">Image :</label>
         <input id="image" type="file" accept="image/*" @input="form.image = $event.target.files[0]">
         <span v-if="form.errors.image" class="text-red-600">{{ form.errors.image }}</span>
@@ -16,6 +14,7 @@
 <script setup>
 
 import {useForm} from "@inertiajs/vue3";
+import InputText from "@/Components/Inputs/InputText.vue";
 
 const form = useForm({
     title: '',

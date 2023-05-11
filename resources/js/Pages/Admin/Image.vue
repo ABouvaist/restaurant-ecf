@@ -5,9 +5,7 @@
             <img :src="image.url" alt="image.title">
 
             <div class="my-6">
-                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="title">Titre</label>
-                <input type="text" id="title" v-model="form.title"  class="border rounded p-2 w-full">
-                <div v-if="form.errors.title" v-text="form.errors.title" class="text-red-500 text-xs mt-1"></div>
+                <InputText v-model="form.title" name="Titre" :error="form.errors.title"/>
             </div>
 
             <div class="flex flex-col space-y-4">
@@ -21,6 +19,7 @@
 
 <script setup>
 import {useForm, router} from "@inertiajs/vue3";
+import InputText from "@/Components/Inputs/InputText.vue";
 
 const props = defineProps({
     image: {
