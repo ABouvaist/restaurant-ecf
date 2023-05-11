@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\DishesController;
 use App\Http\Controllers\ImageController;
-use App\Http\Controllers\RestaurantDishesController;
+use App\Http\Controllers\RestaurantCarteController;
+use App\Http\Controllers\RestaurantCarteDishController;
 use App\Models\Image;
 use App\Models\RestaurantMenu;
 use Illuminate\Support\Facades\Route;
@@ -23,12 +25,19 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
 });
 
-Route::middleware('admin')->group(function () {
-    Route::get('/admin', function () {
+Route::middleware('admin')->prefix('admin')->group(function () {
+    Route::get('/', function () {
         return Inertia::render('Admin/Dashboard');
     })->name('admin.dashboard');
 
-    Route::resource('/admin/images', ImageController::class);
+
+    Route::resource('images', ImageController::class);
+//    Route::resource('cartes', RestaurantCarteController::class);
+    Route::resource('cartes.dishes', RestaurantCarteDishController::class)->scoped([
+        'cartes' => 'carte:id',
+        'dishes' => 'dish:id',
+    ]);
+    Route::resource('dishes', DishesController::class);
 });
 
 Route::get('/', function () {
@@ -43,7 +52,7 @@ Route::get('/menus', function () {
     ]);
 })->name('menus');
 
-Route::get('/dishes', [RestaurantDishesController::class, 'showActive'])->name('dishes');
+Route::get('/dishes', [RestaurantCarteController::class, 'showActive'])->name('dishes');
 
 Route::post('/gallery/upload', [ImageController::class, 'store'])->name('gallery.upload');
 
