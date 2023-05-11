@@ -4,7 +4,9 @@
             <li>
                 <Link :href="route('images.index')">Gallerie</Link>
             </li>
-            <li>Carte</li>
+            <li>
+                <Link :href="route('cartes.index')">Carte</Link>
+            </li>
             <li>Menus</li>
             <li>Horaires</li>
         </ul>
