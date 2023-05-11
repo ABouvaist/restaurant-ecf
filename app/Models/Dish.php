@@ -28,13 +28,13 @@ class Dish extends Model
         return $this->dishCategory();
     }
 
-    public function restaurantDishes(): BelongsTo
+    public function restaurantCarte(): BelongsTo
     {
-        return $this->belongsTo(RestaurantDishes::class);
+        return $this->belongsTo(RestaurantCarte::class);
     }
 
-    public function menu(): BelongsTo
+    public function carte(): BelongsTo
     {
-        return $this->restaurantDishes();
+        return $this->restaurantCarte();
     }
 }

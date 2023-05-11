@@ -18,7 +18,7 @@ class DishResource extends JsonResource
 /*            'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,*/
 
-            'restaurant_dishes_id' => $this->restaurant_dishes_id,
+            'restaurant_dish_id' => $this->restaurant_carte_id,
             'dish_category_id' => $this->dish_category_id,
 
             'category' => new DishCategoryResource($this->whenLoaded('category')),

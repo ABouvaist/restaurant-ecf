@@ -22,4 +22,9 @@ class MenuFormula extends Model
     {
         return $this->belongsToMany(RestaurantMenu::class);
     }
+
+    public function menu(): BelongsToMany
+    {
+        return $this->restaurantMenu();
+    }
 }

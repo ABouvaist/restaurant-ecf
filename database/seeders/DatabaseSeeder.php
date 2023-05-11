@@ -7,7 +7,7 @@ use App\Models\Dish;
 use App\Models\DishCategory;
 use App\Models\Image;
 use App\Models\OpeningHours;
-use App\Models\RestaurantDishes;
+use App\Models\RestaurantCarte;
 use App\Models\RestaurantMenu;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
             ->count(5)
             ->create();
 
-        $restaurantDish = RestaurantDishes::factory(1)
+        $restaurantDish = RestaurantCarte::factory(1)
             ->active()
             ->create();
 

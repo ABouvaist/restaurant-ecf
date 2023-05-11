@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('restaurant_dishes', function (Blueprint $table) {
+        Schema::create('restaurant_cartes', function (Blueprint $table) {
             $table->id();
             $table->boolean('shown');
             $table->softDeletes();
@@ -17,6 +17,6 @@ return new class extends Migration {
 
     public function down(): void
     {
-        Schema::dropIfExists('restaurant_dishes');
+        Schema::dropIfExists('restaurant_cartes');
     }
 };

@@ -2,13 +2,13 @@
 
 namespace Database\Factories;
 
-use App\Models\RestaurantDishes;
+use App\Models\RestaurantCarte;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
 
-class RestaurantDishesFactory extends Factory
+class RestaurantCarteFactory extends Factory
 {
-    protected $model = RestaurantDishes::class;
+    protected $model = RestaurantCarte::class;
 
     public function definition(): array
     {
