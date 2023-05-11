@@ -38,7 +38,7 @@ let carte = props.restaurantDishes.data;
 /**
  * @typedef {Object} Dish
  * @property {number} id
- * @property {number} restaurant_dishes_id
+ * @property {number} restaurant_carte_id
  * @property {number} dish_category_id
  * @property {string} title
  * @property {string} description
