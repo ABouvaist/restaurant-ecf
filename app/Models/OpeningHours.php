@@ -33,7 +33,7 @@ class OpeningHours extends Model
     private function makeAttribute(): Attribute
     {
         return Attribute::make(
-            get: static fn ($value) => json_decode($value, true),
+            get: static fn ($value) => json_decode($value, true, 512, JSON_THROW_ON_ERROR),
         );
     }
 
