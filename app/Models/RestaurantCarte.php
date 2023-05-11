@@ -14,7 +14,17 @@ class RestaurantCarte extends Model
     use HasFactory;
 
     protected $fillable = [
+        'name',
         'shown',
+    ];
+
+    protected $casts = [
+        'shown' => 'boolean',
+    ];
+
+    //default values
+    protected $attributes = [
+        'shown' => false,
     ];
 
     public function dishes(): HasMany

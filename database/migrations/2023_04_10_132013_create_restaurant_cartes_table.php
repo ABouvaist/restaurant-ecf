@@ -9,6 +9,7 @@ return new class extends Migration {
     {
         Schema::create('restaurant_cartes', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->boolean('shown');
             $table->softDeletes();
             $table->timestamps();
