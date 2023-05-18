@@ -32,7 +32,7 @@
         </table>
     </div>
 
-    <Link :href="route('cartes.create')">Ajouter une carte</Link>
+    <Link class="m-5" :href="route('cartes.create')">Ajouter une carte</Link>
 
     <div class="overflow-scroll rounded-lg border border-gray-200 shadow-md m-5">
         <h2 class="w-full text-center my-3">Catégories</h2>
@@ -56,7 +56,7 @@
         </table>
     </div>
 
-    <Link :href="route('categories.create')">Ajouter une catégorie</Link>
+    <Link class="m-5" :href="route('categories.create')">Ajouter une catégorie</Link>
 </template>
 
 <script setup>
