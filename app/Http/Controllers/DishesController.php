@@ -36,7 +36,7 @@ class DishesController extends Controller
     {
         return Inertia::render('Admin/Dish', [
             'dish' => $dish,
-            'categories' => $dish->carte->uniqueCategories,
+            'categories' => DishCategory::all(),
             'cartes' => RestaurantCarte::all(),
         ]);
     }
@@ -55,8 +55,8 @@ class DishesController extends Controller
         //update the dishCategory relationship
         $dish->dishCategory()->associate($validated['dish_category_id'])->save();
 
-        //redirect to the edit route
-        return redirect()->route('dishes.edit', $dish->id);
+        //redirect to the dish
+        return redirect()->route('cartes.edit', $dish->carte->id);
     }
 
     public function destroy(Dish $dish)
