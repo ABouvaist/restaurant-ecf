@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\DishCategoriesController;
 use App\Http\Controllers\DishesController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\RestaurantCarteController;
@@ -32,12 +33,14 @@ Route::middleware('admin')->prefix('admin')->group(function () {
 
 
     Route::resource('images', ImageController::class);
-//    Route::resource('cartes', RestaurantCarteController::class);
+    Route::resource('cartes', RestaurantCarteController::class);
     Route::resource('cartes.dishes', RestaurantCarteDishController::class)->scoped([
         'cartes' => 'carte:id',
         'dishes' => 'dish:id',
     ]);
     Route::resource('dishes', DishesController::class);
+
+    Route::resource('categories', DishCategoriesController::class);
 });
 
 Route::get('/', function () {
