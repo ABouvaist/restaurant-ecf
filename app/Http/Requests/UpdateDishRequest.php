@@ -25,7 +25,7 @@ class UpdateDishRequest extends FormRequest
             'title' => 'required|string|max:255',
             'description' => 'nullable|string|max:255',
             'price' => 'required|numeric|min:0',
-            'restaurant_dish_id' => 'required|exists:restaurant_dishes,id',
+            'restaurant_carte_id' => 'required|exists:restaurant_cartes,id',
             'dish_category_id' => 'required|exists:dish_categories,id',
         ];
     }

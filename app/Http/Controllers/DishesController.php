@@ -50,7 +50,7 @@ class DishesController extends Controller
         $dish->update($validated);
 
         //update the restaurantDish relationship
-        $dish->carte()->associate($validated['restaurant_dish_id'])->save();
+        $dish->carte()->associate($validated['restaurant_carte_id'])->save();
 
         //update the dishCategory relationship
         $dish->dishCategory()->associate($validated['dish_category_id'])->save();
