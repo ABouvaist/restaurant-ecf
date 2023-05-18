@@ -13,8 +13,9 @@
         </div>
     </div>
 
-    <div v-if="carte.dishes.length > 0" class="overflow-scroll rounded-lg border border-gray-200 shadow-md m-5">
-        <table class="w-full border-collapse bg-platinum text-left text-sm text-charcoal">
+    <div class="overflow-scroll rounded-lg border border-gray-200 shadow-md m-5">
+        <h2 class="w-full text-center my-3">Plats</h2>
+        <table v-if="carte.dishes.length > 0" class="w-full border-collapse bg-platinum text-left text-sm text-charcoal">
             <thead class="bg-gray-50">
             <tr>
                 <th scope="col" class="px-6 py-4 font-medium text-gray-900">Titre</th>
@@ -35,10 +36,11 @@
 
             </tbody>
         </table>
+        <div v-else>
+            Il n'y a pas de plats dans cette carte
+        </div>
     </div>
-    <div v-else>
-        Il n'y a pas de plats dans cette carte
-    </div>
+
     <Link :href="route('cartes.dishes.create', carte.id)">Ajouter un plat</Link>
 </template>
 

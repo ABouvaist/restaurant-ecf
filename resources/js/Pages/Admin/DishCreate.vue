@@ -10,7 +10,7 @@
             <InputNumber v-model="form.price" name="Prix :" :error="form.errors.price" />
         </div>
         <div class="my-6">
-            <InputSelect :values="categories" v-model="form.dish_category_id" name="Catégorie"/>
+            <InputSelect :values="categories" v-model="form.category_id" allow-other name="Catégorie"/>
         </div>
         <SubmitButton :disabled="form.processing" @click="submit">Ajouter</SubmitButton>
     </div>

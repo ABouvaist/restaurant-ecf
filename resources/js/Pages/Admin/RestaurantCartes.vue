@@ -1,5 +1,6 @@
 <template>
     <div class="overflow-scroll rounded-lg border border-gray-200 shadow-md m-5">
+        <h2 class="w-full text-center my-3">Cartes</h2>
         <table class="w-full border-collapse bg-platinum text-left text-sm text-charcoal">
             <thead class="bg-gray-50">
             <tr>

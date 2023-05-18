@@ -14,10 +14,7 @@
             </div>
 
             <div class="my-6">
-                <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="carte">Carte</label>
-                <select v-model="form.restaurant_dish_id" name="carte" id="carte" class="border rounded p-2 w-full">
-                    <option v-for="carte in cartes" :key="carte.id" :value="carte.id">{{carte.name}}</option>
-                </select>
+                <InputSelect v-model="form.restaurant_carte_id" :values="cartes" name="Carte" />
             </div>
 
 
