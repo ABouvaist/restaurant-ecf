@@ -9,6 +9,7 @@
         :name="slug"
         :id="slug"
         class="border rounded p-2 w-full"
+        @input="$emit('update:modelValue', parseInt($event.target.value))"
     >
         <option
             v-for="option in options"
@@ -17,7 +18,7 @@
         >
             {{option.name}}
         </option>
-</select>
+    </select>
 </template>
 <script setup>
 import {computed} from "vue";

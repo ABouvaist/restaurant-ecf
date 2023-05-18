@@ -25,7 +25,7 @@ const props = defineProps({
         required: true
     },
     modelValue: {
-        type: String,
+        type: Number,
         required: true
     },
     error: {
