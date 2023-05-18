@@ -37,7 +37,7 @@ const props = defineProps({
 const form = useForm({
     title: '',
     description: '',
-    price: '',
+    price: 0,
     category_id: 0,
 })
 

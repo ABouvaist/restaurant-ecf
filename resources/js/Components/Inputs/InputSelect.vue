@@ -41,8 +41,7 @@ const props = defineProps({
 
 const options = computed(() => {
     const defaultChoice = {id: 0, name: 'Choisir...'}
-    const values = [defaultChoice, ...props.values]
-    return values.map(value => {
+    return [defaultChoice, ...props.values].map(value => {
         return {
             key: value.id,
             name: value.name

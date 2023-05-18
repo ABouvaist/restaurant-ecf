@@ -26,8 +26,6 @@ class RestaurantCarteController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
-        dd('here');
-
         //validate the request
         $validated = $request->validate([
             'name' => 'required|string',
