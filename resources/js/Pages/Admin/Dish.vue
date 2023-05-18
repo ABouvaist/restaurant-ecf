@@ -60,7 +60,7 @@ const form = useForm({
     title: props.dish.title,
     description: props.dish.description,
     price: props.dish.price,
-    restaurant_dish_id: props.dish.restaurant_dish_id,
+    restaurant_carte_id: props.dish.restaurant_carte_id,
     dish_category_id: props.dish.dish_category_id,
 })
 
