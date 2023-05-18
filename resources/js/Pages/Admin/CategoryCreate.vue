@@ -1,0 +1,29 @@
+<template>
+    <div class="overflow-scroll rounded-lg border border-gray-200 shadow-md m-5">
+        <div class="my-6">
+            <InputText v-model="form.name" name="Nom de la catégorie :" :error="form.errors.name" />
+        </div>
+
+        <SubmitButton :disabled="form.processing" @click="submit">Ajouter</SubmitButton>
+    </div>
+</template>
+
+<script setup>
+import {useForm} from "@inertiajs/vue3";
+import InputText from "@/Components/Inputs/InputText.vue";
+import SubmitButton from "@/Pages/Admin/SubmitButton.vue";
+
+
+
+const form = useForm({
+    name: '',
+})
+
+const submit = () => {
+    form.post(route('categories.store'));
+}
+</script>
+
+<style scoped>
+
+</style>
