@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\RestaurantCarteRequest;
 use App\Http\Resources\RestaurantDishesResource;
+use App\Models\DishCategory;
 use App\Models\RestaurantCarte;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -14,8 +15,9 @@ class RestaurantCarteController extends Controller
 {
     public function index()
     {
-        return Inertia::render('Admin/RestaurantCartes', [
+        return Inertia::render('Admin/CartesCategories', [
             'cartes' => RestaurantCarte::with('dishes', 'uniqueCategories')->get(),
+            'categories' => DishCategory::all(),
         ]);
     }
 
