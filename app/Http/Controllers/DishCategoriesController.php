@@ -38,18 +38,30 @@ class DishCategoriesController extends Controller
         //TODO ?
     }
 
-    public function edit(DishCategory $dishCategory)
+    public function edit(DishCategory $dishCategory): Response
     {
-        //TODO
+        return Inertia::render('Admin/Category/CategoryEdit', [
+            'category' => $dishCategory,
+        ]);
     }
 
-    public function update(Request $request, DishCategory $dishCategory)
+    public function update(Request $request, DishCategory $dishCategory): RedirectResponse
     {
-        //TODO
+        $rules = [
+            'name' => 'required|string',
+        ];
+
+        $validated = $request->validate($rules);
+
+        $dishCategory->update($validated);
+
+        return to_route('cartes.index');
     }
 
-    public function destroy(DishCategory $dishCategory)
+    public function destroy(DishCategory $dishCategory): RedirectResponse
     {
-        //TODO
+        $dishCategory->delete();
+
+        return to_route('cartes.index');
     }
 }

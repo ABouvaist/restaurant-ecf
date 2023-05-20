@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\DishCategory;
 use App\Models\MenuFormula;
 use App\Models\RestaurantMenu;
 use Illuminate\Cache\RateLimiting\Limit;
@@ -39,6 +40,7 @@ class RouteServiceProvider extends ServiceProvider
 
         Route::model('menu', RestaurantMenu::class);
         Route::model('formula', MenuFormula::class);
+        Route::model('category', DishCategory::class);
     }
 
     /**
