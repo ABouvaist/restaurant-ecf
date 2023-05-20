@@ -10,6 +10,7 @@ use App\Http\Controllers\OpeningHoursController;
 use App\Http\Controllers\RestaurantCarteController;
 use App\Http\Controllers\RestaurantCarteDishController;
 use App\Http\Controllers\RestaurantMenusController;
+use App\Http\Controllers\UpdateUserSettingsController;
 use App\Models\Image;
 use App\Models\RestaurantMenu;
 use Illuminate\Support\Facades\Route;
@@ -74,3 +75,13 @@ Route::get('/booking', function () {
 Route::get('/hours', function () {
     return Inertia::render('OpeningHoursPage');
 })->name('hours');
+
+
+Route::get('/account', function () {
+    return Inertia::render('AccountPage', [
+        'user' => auth()->user()->only(['first_name', 'last_name', 'email']),
+        'settings' => auth()->user()->settings->only(['number_of_guests', 'allergies']),
+    ]);
+})->name('account');
+
+Route::put('/account', UpdateUserSettingsController::class)->name('account.update');
