@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Builder;
 
 class RestaurantCarte extends Model
 {
@@ -59,5 +60,10 @@ class RestaurantCarte extends Model
     public function uniqueCategories(): HasManyThrough
     {
         return $this->categories()->distinct();
+    }
+
+    public function scopeShown(Builder $query): Builder
+    {
+        return $query->where('shown', true);
     }
 }

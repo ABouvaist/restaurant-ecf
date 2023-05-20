@@ -76,15 +76,16 @@ class RestaurantCarteController extends Controller
     {
     }
 
-    public function showActive()
+    public function showActive(): Response
     {
-        $activeRestaurantDishes = RestaurantCarte::where('shown', true)->first();
-        $activeRestaurantDishes->load('dishes', 'uniqueCategories');
-        $activeRestaurantDishes->dishes->load('category');
-        $resource = new RestaurantDishesResource($activeRestaurantDishes);
+        $carte = RestaurantCarte::shown()
+            ->with(['dishes.category', 'uniqueCategories'])
+            ->first();
+
+        $carteResource = new RestaurantDishesResource($carte);
 
         return Inertia::render('DishesPage', [
-            'restaurantDishes' => $resource,
+            'restaurantDishes' => $carteResource,
         ]);
     }
 }
