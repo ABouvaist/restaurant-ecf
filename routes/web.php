@@ -5,8 +5,10 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DishCategoriesController;
 use App\Http\Controllers\DishesController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\MenuFormulasController;
 use App\Http\Controllers\RestaurantCarteController;
 use App\Http\Controllers\RestaurantCarteDishController;
+use App\Http\Controllers\RestaurantMenusController;
 use App\Models\Image;
 use App\Models\RestaurantMenu;
 use Illuminate\Support\Facades\Route;
@@ -41,6 +43,10 @@ Route::middleware('admin')->prefix('admin')->group(function () {
     Route::resource('dishes', DishesController::class);
 
     Route::resource('categories', DishCategoriesController::class);
+
+    Route::resource('menus', RestaurantMenusController::class);
+
+    Route::resource('formulas', MenuFormulasController::class);
 });
 
 Route::get('/', function () {
