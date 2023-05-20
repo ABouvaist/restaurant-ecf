@@ -38,7 +38,7 @@
 import {useForm} from "@inertiajs/vue3";
 import InputText from "@/Components/Inputs/InputText.vue";
 import InputNumber from "@/Components/Inputs/InputNumber.vue";
-import SubmitButton from "@/Pages/Admin/SubmitButton.vue";
+import SubmitButton from "@/Components/Admin/SubmitButton.vue";
 import InputSelect from "@/Components/Inputs/InputSelect.vue";
 
 const props = defineProps({
