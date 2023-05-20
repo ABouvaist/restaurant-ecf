@@ -6,6 +6,7 @@
     </label>
 
     <input
+        :disabled="disabled"
         type="text"
         :id="slug"
         v-model="modelValue"
@@ -38,7 +39,12 @@ const props = defineProps({
         type: Boolean,
         required: false,
         default: false
-    }
+    },
+    disabled: {
+        type: Boolean,
+        required: false,
+        default: false
+    },
 })
 
 defineEmits(['update:modelValue']);
