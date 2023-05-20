@@ -26,8 +26,7 @@
 
 
             <div class="flex flex-col space-y-4">
-                <SubmitButton :disabled="form.processing" @click="submit">Enregistrer</SubmitButton>
-                <button class="bg-red-400 text-white rounded py-2 px-4 hover:bg-red-500" @click="">Supprimer</button>
+                <ActionButtons :disabled="form.processing" @click="submit" @delete="deleteDish"/>
             </div>
         </div>
     </div>
@@ -40,6 +39,7 @@ import InputText from "@/Components/Inputs/InputText.vue";
 import InputNumber from "@/Components/Inputs/InputNumber.vue";
 import SubmitButton from "@/Components/Admin/SubmitButton.vue";
 import InputSelect from "@/Components/Inputs/InputSelect.vue";
+import ActionButtons from "@/Components/Admin/ActionButtons.vue";
 
 const props = defineProps({
     dish: {
@@ -66,6 +66,10 @@ const form = useForm({
 
 const submit = () => {
     form.put(route('dishes.update', props.dish.id));
+}
+
+const deleteDish = () => {
+    form.delete(route('dishes.destroy', props.dish.id));
 }
 
 </script>

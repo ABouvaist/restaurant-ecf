@@ -40,13 +40,15 @@ class RestaurantCarteDishController extends Controller
     {
         $validated = $request->validated();
 
-        $dish = $carte->dishes()->create([
+        $dish = Dish::make([
             'title' => $validated['title'],
             'description' => $validated['description'],
             'price' => $validated['price'],
         ]);
 
         $dish->category()->associate(DishCategory::find($validated['category_id']));
+
+        $carte->dishes()->save($dish);
 
         $dish->save();
 

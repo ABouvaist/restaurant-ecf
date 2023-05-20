@@ -58,8 +58,10 @@ class DishesController extends Controller
         return to_route('cartes.edit', $dish->carte->id);
     }
 
-    public function destroy(Dish $dish)
+    public function destroy(Dish $dish): RedirectResponse
     {
-        //TODO
+        $dish->delete();
+
+        return to_route('cartes.edit', $dish->carte->id);
     }
 }
