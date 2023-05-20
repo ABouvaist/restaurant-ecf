@@ -1,5 +1,6 @@
 <script setup>
 import {Link} from "@inertiajs/vue3";
+import AddButton from "@/Components/Admin/AddButton.vue";
 const props = defineProps({
     menus: {
         type: Array,
@@ -28,6 +29,8 @@ const props = defineProps({
 
             </tbody>
         </table>
+
+        <AddButton :href="route('menus.create')">Ajouter un menu</AddButton>
     </div>
 </template>
 

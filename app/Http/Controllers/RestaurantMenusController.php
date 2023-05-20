@@ -17,14 +17,22 @@ class RestaurantMenusController extends Controller
         ]);
     }
 
-    public function create()
+    public function create(): Response
     {
-        //TODO
+        return Inertia::render('Admin/Menu/MenuCreate');
     }
 
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
-        //TODO
+        ["title" => $title] = $request->validate([
+            'title' => 'required|string|max:255',
+        ]);
+
+        RestaurantMenu::create([
+            'title' => $title,
+        ]);
+
+        return to_route('menus.index');
     }
 
     public function show(RestaurantMenu $restaurantMenu)
