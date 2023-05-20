@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\MenuFormula;
 use App\Models\RestaurantMenu;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -15,14 +16,33 @@ class MenuFormulasController extends Controller
         //TODO ?
     }
 
-    public function create()
+    public function create(): Response
     {
-        //TODO
+        return Inertia::render('Admin/Menu/MenuFormulaCreate', [
+            'menus' => RestaurantMenu::get(['id', 'title']),
+        ]);
     }
 
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
-        //TODO
+        $rules = [
+            'name' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
+            'price' => 'required|numeric',
+            'restaurant_menu_id' => 'required|exists:restaurant_menus,id',
+        ];
+
+        $validated = $request->validate($rules);
+
+        $menuFormula = MenuFormula::make([
+            'name' => $validated['name'],
+            'description' => $validated['description'],
+            'price' => $validated['price'],
+        ]);
+
+        $menuFormula->menu()->associate($validated['restaurant_menu_id'])->save();
+
+        return to_route('menus.edit', $menuFormula->menu->id);
     }
 
     public function show(MenuFormula $menuFormula)
@@ -38,13 +58,32 @@ class MenuFormulasController extends Controller
         ]);
     }
 
-    public function update(Request $request, MenuFormula $menuFormula)
+    public function update(Request $request, MenuFormula $menuFormula): RedirectResponse
     {
-        //TODO
+        $rules = [
+            'name' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
+            'price' => 'required|numeric',
+            'restaurant_menu_id' => 'required|exists:restaurant_menus,id',
+        ];
+
+        $validated = $request->validate($rules);
+
+        $menuFormula->update([
+            'name' => $validated['name'],
+            'description' => $validated['description'],
+            'price' => $validated['price'],
+        ]);
+
+        $menuFormula->menu()->associate($validated['restaurant_menu_id'])->save();
+
+        return to_route('menus.edit', $menuFormula->menu->id);
     }
 
-    public function destroy(MenuFormula $menuFormula)
+    public function destroy(MenuFormula $menuFormula): RedirectResponse
     {
-        //TODO
+        $menuFormula->delete();
+
+        return to_route('menus.edit', $menuFormula->menu->id);
     }
 }

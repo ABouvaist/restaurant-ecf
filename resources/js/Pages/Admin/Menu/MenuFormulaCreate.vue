@@ -1,15 +1,12 @@
 <script setup>
+
+import InputSelect from "@/Components/Inputs/InputSelect.vue";
 import InputText from "@/Components/Inputs/InputText.vue";
 import InputNumber from "@/Components/Inputs/InputNumber.vue";
 import {useForm} from "@inertiajs/vue3";
-import InputSelect from "@/Components/Inputs/InputSelect.vue";
-import ActionButtons from "@/Components/Admin/ActionButtons.vue";
+import SubmitButton from "@/Components/Admin/SubmitButton.vue";
 
 const props = defineProps({
-    formula: {
-        type: Object,
-        required: true
-    },
     menus: {
         type: Array,
         required: true
@@ -17,18 +14,14 @@ const props = defineProps({
 })
 
 const form = useForm({
-    name: props.formula.name,
-    description: props.formula.description,
-    price: props.formula.price,
-    restaurant_menu_id: props.formula.restaurant_menu_id,
+    name: '',
+    description: '',
+    price: '',
+    restaurant_menu_id: route().params.menu,
 })
 
 const submit = () => {
-    form.put(route('formulas.update', props.formula.id))
-}
-
-const deleteFormula = () => {
-    form.delete(route('formulas.destroy', props.formula.id))
+    form.post(route('formulas.store'))
 }
 </script>
 
@@ -51,7 +44,7 @@ const deleteFormula = () => {
         </div>
 
         <div class="flex flex-col space-y-4">
-            <ActionButtons :disabled="form.processing" @submit="submit" @delete="deleteFormula"/>
+            <SubmitButton :disabled="form.processing" @click="submit" >Ajouter</SubmitButton>
         </div>
     </div>
 </template>

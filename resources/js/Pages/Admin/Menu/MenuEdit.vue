@@ -2,6 +2,7 @@
 import {Link, useForm} from "@inertiajs/vue3";
 import InputText from "@/Components/Inputs/InputText.vue";
 import ActionButtons from "@/Components/Admin/ActionButtons.vue";
+import AddButton from "@/Components/Admin/AddButton.vue";
 
 const props = defineProps({
     menu: {
@@ -57,6 +58,8 @@ const deleteMenu = () => {
             </tbody>
         </table>
     </div>
+
+    <AddButton :href="route('formulas.create', {menu: props.menu.id})">Ajouter une formule</AddButton>
 
 </template>
 
