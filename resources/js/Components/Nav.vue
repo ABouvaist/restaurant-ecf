@@ -30,6 +30,9 @@
                     <li v-if="user?.is_admin">
                         <NavLink @click="menu = !menu" :active="false" :href="route('admin.dashboard')">Gestion</NavLink>
                     </li>
+                    <li v-if="user && ! user.is_admin">
+                        <NavLink @click="menu = !menu" :active="false" :href="route('account')">Mon compte</NavLink>
+                    </li>
                     <li v-if="!user">
                         <NavLink @click="menu = !menu" :active="$page.component === 'Auth/Login'" :href="route('login')">Connexion</NavLink>
                     </li>
