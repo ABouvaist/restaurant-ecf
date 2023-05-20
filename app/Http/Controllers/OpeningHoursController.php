@@ -17,30 +17,10 @@ class OpeningHoursController extends Controller
         ]);
     }
 
-    public function create()
-    {
-    }
-
-    public function store(Request $request)
-    {
-    }
-
-    public function show(OpeningHours $openingHours)
-    {
-    }
-
-    public function edit(OpeningHours $openingHours)
-    {
-    }
-
     public function update(Request $request, OpeningHours $openingHours): RedirectResponse
     {
         $openingHours->update($request->all());
 
         return to_route('hours.index');
-    }
-
-    public function destroy(OpeningHours $openingHours)
-    {
     }
 }

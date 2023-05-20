@@ -40,16 +40,16 @@ Route::middleware('admin')->prefix('admin')->group(function () {
     Route::resource('cartes.dishes', RestaurantCarteDishController::class)->scoped([
         'cartes' => 'carte:id',
         'dishes' => 'dish:id',
-    ]);
-    Route::resource('dishes', DishesController::class);
+    ])->only(['create', 'store']);
+    Route::resource('dishes', DishesController::class)->except(['index', 'show', 'store']);
 
-    Route::resource('categories', DishCategoriesController::class);
+    Route::resource('categories', DishCategoriesController::class)->except(['index', 'show']);
 
-    Route::resource('menus', RestaurantMenusController::class);
+    Route::resource('menus', RestaurantMenusController::class)->except(['show']);
 
-    Route::resource('formulas', MenuFormulasController::class);
+    Route::resource('formulas', MenuFormulasController::class)->except(['index', 'show']);
 
-    Route::resource('hours', OpeningHoursController::class);
+    Route::resource('hours', OpeningHoursController::class)->only(['index', 'update']);
 });
 
 Route::get('/', function () {

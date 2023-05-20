@@ -35,10 +35,6 @@ class RestaurantMenusController extends Controller
         return to_route('menus.index');
     }
 
-    public function show(RestaurantMenu $restaurantMenu)
-    {
-        //TODO ?
-    }
 
     public function edit(RestaurantMenu $restaurantMenu): Response
     {

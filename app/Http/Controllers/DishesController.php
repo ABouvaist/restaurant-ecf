@@ -13,10 +13,6 @@ use Inertia\Response;
 
 class DishesController extends Controller
 {
-    public function index()
-    {
-        //TODO ?
-    }
 
     public function create(): Response
     {
@@ -24,16 +20,6 @@ class DishesController extends Controller
             'categories' => DishCategory::all(),
             'cartes' => RestaurantCarte::all(),
         ]);
-    }
-
-    public function store(Request $request)
-    {
-        //TODO ?
-    }
-
-    public function show(Dish $dish)
-    {
-        //TODO ?
     }
 
     public function edit(Dish $dish): Response

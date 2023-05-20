@@ -11,11 +11,6 @@ use Inertia\Response;
 
 class MenuFormulasController extends Controller
 {
-    public function index()
-    {
-        //TODO ?
-    }
-
     public function create(): Response
     {
         return Inertia::render('Admin/Menu/MenuFormulaCreate', [
@@ -43,11 +38,6 @@ class MenuFormulasController extends Controller
         $menuFormula->menu()->associate($validated['restaurant_menu_id'])->save();
 
         return to_route('menus.edit', $menuFormula->menu->id);
-    }
-
-    public function show(MenuFormula $menuFormula)
-    {
-        //TODO ?
     }
 
     public function edit(MenuFormula $menuFormula): Response
