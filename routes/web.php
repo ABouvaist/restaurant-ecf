@@ -32,7 +32,7 @@ Route::middleware('admin')->prefix('admin')->group(function () {
     })->name('admin.dashboard');
 
 
-    Route::resource('images', ImageController::class);
+    Route::resource('images', ImageController::class)->except(['show']);
     Route::resource('cartes', RestaurantCarteController::class);
     Route::resource('cartes.dishes', RestaurantCarteDishController::class)->scoped([
         'cartes' => 'carte:id',

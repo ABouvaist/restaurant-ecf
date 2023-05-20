@@ -3,51 +3,53 @@
 namespace App\Http\Controllers;
 
 use App\Models\DishCategory;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Inertia\Response;
 
 class DishCategoriesController extends Controller
 {
     public function index()
     {
-
+        //TODO ?
     }
 
-    public function create()
+    public function create(): Response
     {
         return Inertia::render('Admin/CategoryCreate');
     }
 
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
-        //Define the validation rules
         $rules = [
             'name' => 'required|string',
         ];
 
-        //Validate the request
         $validated = $request->validate($rules);
 
-        //Create the dish category
-        $dishCategory = DishCategory::create($validated);
+        DishCategory::create($validated);
 
-        //Redirect to the cartes index page
-        return redirect()->route('cartes.index');
+        return to_route('cartes.index');
     }
 
     public function show(DishCategory $dishCategory)
     {
+        //TODO ?
     }
 
     public function edit(DishCategory $dishCategory)
     {
+        //TODO
     }
 
     public function update(Request $request, DishCategory $dishCategory)
     {
+        //TODO
     }
 
     public function destroy(DishCategory $dishCategory)
     {
+        //TODO
     }
 }

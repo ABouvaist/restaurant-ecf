@@ -6,17 +6,19 @@ use App\Http\Requests\UpdateDishRequest;
 use App\Models\Dish;
 use App\Models\DishCategory;
 use App\Models\RestaurantCarte;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Inertia\Response;
 
 class DishesController extends Controller
 {
     public function index()
     {
-
+        //TODO ?
     }
 
-    public function create()
+    public function create(): Response
     {
         return Inertia::render('Admin/DishCreate', [
             'categories' => DishCategory::all(),
@@ -26,13 +28,15 @@ class DishesController extends Controller
 
     public function store(Request $request)
     {
+        //TODO ?
     }
 
     public function show(Dish $dish)
     {
+        //TODO ?
     }
 
-    public function edit(Dish $dish)
+    public function edit(Dish $dish): Response
     {
         return Inertia::render('Admin/Dish', [
             'dish' => $dish,
@@ -41,25 +45,21 @@ class DishesController extends Controller
         ]);
     }
 
-    public function update(UpdateDishRequest $request, Dish $dish)
+    public function update(UpdateDishRequest $request, Dish $dish): RedirectResponse
     {
-        //validate the request
         $validated = $request->validated();
 
-        //update the dish
         $dish->update($validated);
 
-        //update the restaurantDish relationship
         $dish->carte()->associate($validated['restaurant_carte_id'])->save();
 
-        //update the dishCategory relationship
         $dish->dishCategory()->associate($validated['dish_category_id'])->save();
 
-        //redirect to the dish
-        return redirect()->route('cartes.edit', $dish->carte->id);
+        return to_route('cartes.edit', $dish->carte->id);
     }
 
     public function destroy(Dish $dish)
     {
+        //TODO
     }
 }

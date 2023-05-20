@@ -13,7 +13,7 @@ use Inertia\Response;
 
 class RestaurantCarteController extends Controller
 {
-    public function index()
+    public function index(): Response
     {
         return Inertia::render('Admin/CartesCategories', [
             'cartes' => RestaurantCarte::with('dishes', 'uniqueCategories')->get(),
@@ -21,23 +21,20 @@ class RestaurantCarteController extends Controller
         ]);
     }
 
-    public function create()
+    public function create(): Response
     {
         return Inertia::render('Admin/RestaurantCarteCreate');
     }
 
     public function store(Request $request): RedirectResponse
     {
-        //validate the request
         $validated = $request->validate([
             'name' => 'required|string',
         ]);
 
-        //create the restaurant dish
         $restaurantCarte = RestaurantCarte::create($validated);
 
-        //redirect to the edit route
-        return redirect()->route('cartes.edit', $restaurantCarte->id);
+        return to_route('cartes.edit', $restaurantCarte->id);
     }
 
     public function show(RestaurantCarte $carte): Response
@@ -56,7 +53,6 @@ class RestaurantCarteController extends Controller
 
     public function update(RestaurantCarteRequest $request, RestaurantCarte $carte): RedirectResponse
     {
-        //validate the request
         $validated = $request->validated();
 
         //do not redirect if only the shown attribute was updated
@@ -65,15 +61,14 @@ class RestaurantCarteController extends Controller
             return back();
         }
 
-        //update the restaurant dishes
         $carte->update($validated);
 
-        //redirect to the edit route
-        return redirect()->route('cartes.edit', $carte->id);
+        return to_route('cartes.edit', $carte->id);
     }
 
     public function destroy(RestaurantCarte $restaurantDishes)
     {
+        //TODO
     }
 
     public function showActive(): Response

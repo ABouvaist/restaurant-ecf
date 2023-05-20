@@ -18,7 +18,7 @@ class RestaurantCarteDishController extends Controller
      */
     public function index()
     {
-        //
+        //TODO ?
     }
 
     /**
@@ -38,25 +38,19 @@ class RestaurantCarteDishController extends Controller
      */
     public function store(RestaurantCarte $carte, CreateRestaurantCarteDishRequest $request): RedirectResponse
     {
-        //validate the request
         $validated = $request->validated();
 
-        //make the dish
         $dish = $carte->dishes()->create([
             'title' => $validated['title'],
             'description' => $validated['description'],
             'price' => $validated['price'],
         ]);
 
-
-        //set the relations
         $dish->category()->associate(DishCategory::find($validated['category_id']));
 
-        //save the dish
         $dish->save();
 
-        //redirect to the carte
-        return redirect()->route('cartes.edit', $carte->id);
+        return to_route('cartes.edit', $carte->id);
     }
 
     /**
@@ -64,7 +58,7 @@ class RestaurantCarteDishController extends Controller
      */
     public function show(Dish $dish)
     {
-        //
+        //TODO ?
     }
 
     /**
@@ -72,7 +66,7 @@ class RestaurantCarteDishController extends Controller
      */
     public function edit(Dish $dish)
     {
-        //
+        //TODO ?
     }
 
     /**
@@ -80,7 +74,7 @@ class RestaurantCarteDishController extends Controller
      */
     public function update(Request $request, Dish $dish)
     {
-        //
+        //TODO ?
     }
 
     /**
@@ -88,6 +82,6 @@ class RestaurantCarteDishController extends Controller
      */
     public function destroy(Dish $dish)
     {
-        //
+        //TODO ?
     }
 }
