@@ -32,7 +32,7 @@
         </table>
     </div>
 
-    <Link class="m-5" :href="route('cartes.create')">Ajouter une carte</Link>
+    <AddButton :href="route('cartes.create')">Ajouter une carte</AddButton>
 
     <div class="overflow-scroll rounded-lg border border-gray-200 shadow-md m-5">
         <h2 class="w-full text-center my-3">Catégories</h2>
@@ -56,12 +56,13 @@
         </table>
     </div>
 
-    <Link class="m-5" :href="route('categories.create')">Ajouter une catégorie</Link>
+    <AddButton :href="route('categories.create')">Ajouter une catégorie</AddButton>
 </template>
 
 <script setup>
 import Switch from "@/Components/Switch.vue";
 import {Link, useForm} from "@inertiajs/vue3";
+import AddButton from "@/Components/Admin/AddButton.vue";
 
 defineProps({
     cartes: {
