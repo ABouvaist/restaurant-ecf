@@ -9,9 +9,9 @@ return new class extends Migration {
     {
         Schema::create('client_settings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('client_id')->constrained('users');
-            $table->integer('numberOfGuests');
-            $table->json('allergies');
+            $table->foreignId('user_id')->constrained('users');
+            $table->integer('number_of_guests')->default(1);
+            $table->json('allergies')->default('[]');
             $table->timestamps();
         });
     }

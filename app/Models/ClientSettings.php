@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class ClientSettings extends Model
 {
+    protected $fillable = [
+        'allergies',
+        'number_of_guests',
+    ];
+
     protected $casts = [
         'allergies' => 'array',
     ];
