@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class MenuFormula extends Model
@@ -18,12 +18,12 @@ class MenuFormula extends Model
         'price',
     ];
 
-    public function restaurantMenu(): BelongsToMany
+    public function restaurantMenu(): BelongsTo
     {
-        return $this->belongsToMany(RestaurantMenu::class);
+        return $this->belongsTo(RestaurantMenu::class);
     }
 
-    public function menu(): BelongsToMany
+    public function menu(): BelongsTo
     {
         return $this->restaurantMenu();
     }
