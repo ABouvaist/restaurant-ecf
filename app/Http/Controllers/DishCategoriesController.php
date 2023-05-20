@@ -17,7 +17,7 @@ class DishCategoriesController extends Controller
 
     public function create(): Response
     {
-        return Inertia::render('Admin/CategoryCreate');
+        return Inertia::render('Admin/Category/CategoryCreate');
     }
 
     public function store(Request $request): RedirectResponse
