@@ -18,7 +18,7 @@ class ImageController extends Controller
         ]);
     }
 
-    public function store(StoreImageRequest $request): void
+    public function store(StoreImageRequest $request): RedirectResponse
     {
         $title = $request->validated('title');
         $image = $request->file('image');
@@ -31,9 +31,11 @@ class ImageController extends Controller
             'url' => $path,
             'shown' => true,
         ]);
+
+        return to_route('images.index');
     }
 
-    public function show(Image $image): Response
+    public function edit(Image $image): Response
     {
         return Inertia::render('Admin/Image', [
             'image' => $image,
