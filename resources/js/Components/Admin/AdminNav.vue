@@ -7,7 +7,9 @@
             <li>
                 <Link :href="route('cartes.index')">Carte</Link>
             </li>
-            <li>Menus</li>
+            <li>
+                <Link :href="route('menus.index')">Menus</Link>
+            </li>
             <li>Horaires</li>
         </ul>
     </nav>
