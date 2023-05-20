@@ -26,7 +26,7 @@
             <div v-if="form.errors.password_confirmation" v-text="form.errors.password_confirmation" class="text-red-500 text-xs mt-1"></div>
         </div>
         <div class="mb-6">
-            <button type="submit" class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500" :disabled="form.processing">Login</button>
+            <button type="submit" class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500" :disabled="form.processing">Créer le compte</button>
         </div>
     </form>
     <Link :href="route('login')" class="m-6 text-moonstone underline">Déjà un compte ?</Link>
