@@ -11,10 +11,13 @@
             <tbody class="divide-y divide-gray-100 border-t border-gray-100">
             <tr class="hover:bg-gray-50" v-for="(time, day) in openingHours" :key="day">
                 <td class="px-6 py-4 text-sm font-medium text-gray-700">{{day}}</td>
-                <td class="px-6 py-4">
+                <td class="px-6 py-4" v-if="time.length > 0">
                     <div v-for="interval in time">
                         {{ interval }}
                     </div>
+                </td>
+                <td class="px-6 py-4" v-else>
+                    Fermé
                 </td>
             </tr>
 
