@@ -26,11 +26,14 @@
             </tbody>
         </table>
     </div>
+
+    <AddButton :href="route('images.create')">Ajouter une image</AddButton>
 </template>
 
 <script setup>
 import { Link, router } from "@inertiajs/vue3";
 import Switch from "@/Components/Switch.vue";
+import AddButton from "@/Components/Admin/AddButton.vue";
 
 defineProps({
     images: {

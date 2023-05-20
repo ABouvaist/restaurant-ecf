@@ -22,15 +22,11 @@ const form = useForm({
 })
 
 const submit = () => {
-    form.post(route('gallery.upload'), {
+    form.post(route('images.store'), {
         onError: (error) => {
             console.log(error)
         },
     });
-}
-
-function foo(e) {
-    console.log(e)
 }
 </script>
 

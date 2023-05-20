@@ -18,6 +18,11 @@ class ImageController extends Controller
         ]);
     }
 
+    public function create(): Response
+    {
+        return Inertia::render('Admin/Gallery/ImageCreate');
+    }
+
     public function store(StoreImageRequest $request): RedirectResponse
     {
         $title = $request->validated('title');

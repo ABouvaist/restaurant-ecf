@@ -2,7 +2,7 @@
     <div class="m-6 rounded-lg shadow-md">
         <div class="flex flex-col items-center">
             <h1 class="text-xl mb-6">{{ image.title }}</h1>
-            <img :src="image.url" alt="image.title">
+            <img :src="`/${image.url}`" :alt="image.title">
 
             <div class="my-6">
                 <InputText v-model="form.title" name="Titre" :error="form.errors.title"/>
