@@ -63,12 +63,14 @@ class RestaurantCarteController extends Controller
 
         $carte->update($validated);
 
-        return to_route('cartes.edit', $carte->id);
+        return to_route('cartes.index');
     }
 
-    public function destroy(RestaurantCarte $restaurantDishes)
+    public function destroy(RestaurantCarte $carte): RedirectResponse
     {
-        //TODO
+        $carte->delete();
+
+        return to_route('cartes.index');
     }
 
     public function showActive(): Response

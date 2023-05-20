@@ -7,8 +7,7 @@
 
 
             <div class="flex flex-col space-y-4">
-                <button type="submit" class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500" :disabled="form.processing" @click="submit">Enregistrer</button>
-                <button class="bg-red-400 text-white rounded py-2 px-4 hover:bg-red-500" @click="">Supprimer</button>
+                <ActionButtons :disabled="form.processing" @submit="submit" @delete="deleteCarte"/>
             </div>
         </div>
     </div>
@@ -41,12 +40,14 @@
         </div>
     </div>
 
-    <Link :href="route('cartes.dishes.create', carte.id)">Ajouter un plat</Link>
+    <AddButton :href="route('cartes.dishes.create', carte.id)">Ajouter un plat</AddButton>
 </template>
 
 <script setup>
 import {Link, useForm} from "@inertiajs/vue3";
 import InputText from "@/Components/Inputs/InputText.vue";
+import AddButton from "@/Components/Admin/AddButton.vue";
+import ActionButtons from "@/Components/Admin/ActionButtons.vue";
 
 const props = defineProps({
     carte: {
@@ -61,6 +62,15 @@ const form = useForm({
 
 const submit = () => {
     form.put(route('cartes.update', props.carte.id))
+}
+
+const deleteCarte = () => {
+    if (props.carte.shown) {
+        alert('Vous ne pouvez pas supprimer la carte active, activez une autre carte avant de supprimer celle-ci')
+        return
+    }
+
+    form.delete(route('cartes.destroy', props.carte.id))
 }
 </script>
 
