@@ -10,8 +10,12 @@ return new class extends Migration {
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('client_id')->constrained('users');
-            $table->integer('numberOfGuests');
-            $table->dateTime('date');
+            $table->string('first_name')->nullable();
+            $table->string('last_name')->nullable();
+            $table->string('email')->nullable();
+            $table->integer('number_of_guests');
+            $table->date('date');
+            $table->time('time');
             $table->string('allergies');
             $table->timestamps();
         });

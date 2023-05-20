@@ -84,13 +84,4 @@ class OpeningHours extends Model
             'sunday' => $this->sunday,
         ];
     }
-
-    public function uniqueHours(): array
-    {
-        $hours = [];
-        foreach ($this->toArray() as $day => $timeRange) {
-            $hours[] = $timeRange;
-        }
-        return array_unique($hours);
-    }
 }

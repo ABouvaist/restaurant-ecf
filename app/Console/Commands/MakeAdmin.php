@@ -47,14 +47,14 @@ class MakeAdmin extends Command
             'role' => User::ADMIN,
             'email' => $this->promptEmail(),
             'password' => Hash::make($this->promptPassword()),
+            'max_guests' => $this->promptMaxGuests(),
         ]);
 
-        $this->table(['Prénom', 'Nom', 'Email', 'a'], [
+        $this->table(['Prénom', 'Nom', 'Email'], [
             [
                 $user->first_name,
                 $user->last_name,
                 $user->email,
-                $user->role,
             ],
         ]);
 
@@ -106,5 +106,10 @@ class MakeAdmin extends Command
         }
 
         return $email;
+    }
+
+    public function promptMaxGuests(): int
+    {
+        return (int) $this->ask('Entrez le nombre maximum de convives dans votre établissement', 25);
     }
 }
