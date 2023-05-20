@@ -69,3 +69,8 @@ Route::get('/dishes', [RestaurantCarteController::class, 'showActive'])->name('d
 Route::get('/booking', function () {
     return Inertia::render('BookingPage');
 })->name('booking');
+
+
+Route::get('/hours', function () {
+    return Inertia::render('OpeningHoursPage');
+})->name('hours');

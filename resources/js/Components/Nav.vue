@@ -24,6 +24,9 @@
                     <li>
                         <NavLink @click="menu = !menu" :active="$page.component === 'BookingPage'" :href="route('booking')">Réserver</NavLink>
                     </li>
+                    <li>
+                        <NavLink @click="menu = !menu" :active="$page.component === 'OpeningHoursPage'" :href="route('hours')">Horaires d'ouverture</NavLink>
+                    </li>
                     <li v-if="user?.is_admin">
                         <NavLink @click="menu = !menu" :active="false" :href="route('admin.dashboard')">Gestion</NavLink>
                     </li>
@@ -36,7 +39,7 @@
                 </ul>
             </nav>
 
-            <OpeningHours></OpeningHours>
+<!--            <OpeningHours></OpeningHours>-->
 
         </div>
     </header>
