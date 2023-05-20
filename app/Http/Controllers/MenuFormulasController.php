@@ -32,7 +32,7 @@ class MenuFormulasController extends Controller
 
     public function edit(MenuFormula $menuFormula): Response
     {
-        return Inertia::render('Admin/MenuFormula', [
+        return Inertia::render('Admin/Menu/MenuFormulaEdit', [
             'formula' => $menuFormula->loadMissing('menu'),
             'menus' => RestaurantMenu::get(['id', 'title']),
         ]);

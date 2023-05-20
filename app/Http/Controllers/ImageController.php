@@ -13,7 +13,7 @@ class ImageController extends Controller
 {
     public function index(): Response
     {
-        return Inertia::render('Admin/Gallery', [
+        return Inertia::render('Admin/Gallery/ImageList', [
             'images' => Image::all(),
         ]);
     }
@@ -37,7 +37,7 @@ class ImageController extends Controller
 
     public function edit(Image $image): Response
     {
-        return Inertia::render('Admin/Image', [
+        return Inertia::render('Admin/Gallery/ImageEdit', [
             'image' => $image,
         ]);
     }

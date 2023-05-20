@@ -12,7 +12,7 @@ class RestaurantMenusController extends Controller
 {
     public function index(): Response
     {
-        return Inertia::render('Admin/Menus', [
+        return Inertia::render('Admin/Menu/MenuList', [
             'menus' => RestaurantMenu::with('menuFormulas:id,restaurant_menu_id,name,description,price')->get(['id', 'title']),
         ]);
     }
@@ -34,7 +34,7 @@ class RestaurantMenusController extends Controller
 
     public function edit(RestaurantMenu $restaurantMenu): Response
     {
-        return Inertia::render('Admin/Menu', [
+        return Inertia::render('Admin/Menu/MenuEdit', [
             'menu' => $restaurantMenu->load('menuFormulas:id,restaurant_menu_id,name,description,price'),
         ]);
     }
