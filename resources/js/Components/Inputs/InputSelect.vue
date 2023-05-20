@@ -44,7 +44,7 @@ const options = computed(() => {
     return [defaultChoice, ...props.values].map(value => {
         return {
             key: value.id,
-            name: value.name
+            name: value.name ?? value.title
         }
     })
 })
