@@ -35,6 +35,8 @@ Route::middleware('admin')->prefix('admin')->group(function () {
         return Inertia::render('Admin/Dashboard');
     })->name('admin.dashboard');
 
+    Route::put('/guests', UpdateMaxGuestsController::class)->name('admin.updateMaxGuests');
+
 
     Route::resource('images', ImageController::class)->except(['show']);
     Route::resource('cartes', RestaurantCarteController::class);
