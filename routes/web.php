@@ -6,6 +6,7 @@ use App\Http\Controllers\DishCategoriesController;
 use App\Http\Controllers\DishesController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\MenuFormulasController;
+use App\Http\Controllers\OpeningHoursController;
 use App\Http\Controllers\RestaurantCarteController;
 use App\Http\Controllers\RestaurantCarteDishController;
 use App\Http\Controllers\RestaurantMenusController;
@@ -47,6 +48,8 @@ Route::middleware('admin')->prefix('admin')->group(function () {
     Route::resource('menus', RestaurantMenusController::class);
 
     Route::resource('formulas', MenuFormulasController::class);
+
+    Route::resource('hours', OpeningHoursController::class);
 });
 
 Route::get('/', function () {
@@ -62,8 +65,6 @@ Route::get('/menus', function () {
 })->name('menus');
 
 Route::get('/dishes', [RestaurantCarteController::class, 'showActive'])->name('dishes');
-
-Route::post('/gallery/upload', [ImageController::class, 'store'])->name('gallery.upload');
 
 Route::get('/booking', function () {
     return Inertia::render('BookingPage');

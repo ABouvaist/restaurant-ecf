@@ -30,7 +30,7 @@ const tabs = [
     {
         id: 'hours_index',
         name: 'Horaires',
-        route: 'images.index'//TODO: change route to horaires.index when implemented
+        route: 'hours.index'
     }
 ]
 

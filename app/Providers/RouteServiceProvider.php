@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\DishCategory;
 use App\Models\MenuFormula;
+use App\Models\OpeningHours;
 use App\Models\RestaurantMenu;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -41,6 +42,7 @@ class RouteServiceProvider extends ServiceProvider
         Route::model('menu', RestaurantMenu::class);
         Route::model('formula', MenuFormula::class);
         Route::model('category', DishCategory::class);
+        Route::model('hour', OpeningHours::class);
     }
 
     /**
