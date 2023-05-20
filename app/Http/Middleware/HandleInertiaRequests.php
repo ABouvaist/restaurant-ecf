@@ -40,10 +40,14 @@ class HandleInertiaRequests extends Middleware
     {
         return array_merge(parent::share($request), [
             'auth.user' => fn () => $request->user()
-                ? array_merge($request->user()->only('first_name', 'last_name'), ['is_admin' => $request->user()->isAdmin()])
+                ? array_merge($request->user()->only('first_name', 'last_name'), ['is_admin' => $request->user()->isAdmin(), 'max_guests' => $request->user()->max_guests])
                 : null,
 
             'opening_hours' => new OpeningHoursResource(OpeningHours::first()),
+
+            'flash' => [
+                'success' => $request->session()->get('success'),
+            ]
         ]);
     }
 }

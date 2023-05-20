@@ -7,9 +7,11 @@ use App\Http\Controllers\DishesController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\MenuFormulasController;
 use App\Http\Controllers\OpeningHoursController;
+use App\Http\Controllers\ReservationsController;
 use App\Http\Controllers\RestaurantCarteController;
 use App\Http\Controllers\RestaurantCarteDishController;
 use App\Http\Controllers\RestaurantMenusController;
+use App\Http\Controllers\UpdateMaxGuestsController;
 use App\Http\Controllers\UpdateUserSettingsController;
 use App\Models\Image;
 use App\Models\RestaurantMenu;
@@ -69,10 +71,7 @@ Route::get('/menus', function () {
 
 Route::get('/dishes', [RestaurantCarteController::class, 'showActive'])->name('dishes');
 
-Route::get('/booking', function () {
-    return Inertia::render('BookingPage');
-})->name('booking');
-
+Route::resource('booking', ReservationsController::class);
 
 Route::get('/hours', function () {
     return Inertia::render('OpeningHoursPage');

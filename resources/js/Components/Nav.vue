@@ -22,7 +22,7 @@
                         <NavLink @click="menu = !menu" :active="$page.component === 'DishesPage'" :href="route('dishes')">Carte</NavLink>
                     </li>
                     <li>
-                        <NavLink @click="menu = !menu" :active="$page.component === 'BookingPage'" :href="route('booking')">Réserver</NavLink>
+                        <NavLink @click="menu = !menu" :active="$page.component === 'BookingPage'" :href="route('booking.create')">Réserver</NavLink>
                     </li>
                     <li>
                         <NavLink @click="menu = !menu" :active="$page.component === 'OpeningHoursPage'" :href="route('hours')">Horaires d'ouverture</NavLink>
