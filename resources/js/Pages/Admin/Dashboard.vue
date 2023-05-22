@@ -1,5 +1,5 @@
 <template>
-    <div class="m-6 bg-white p-3 rounded" >
+    <div class="m-6 mt-12 bg-white rounded p-10 lg:w-1/3 lg:mx-auto">
         <div class="mb-6">
             <InputNumber v-model="form.max_guests" name="Convives max. : " :error="form.errors.max_guests" required/>
         </div>

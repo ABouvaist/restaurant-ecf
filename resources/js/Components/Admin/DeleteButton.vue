@@ -1,6 +1,6 @@
 <template>
     <button @click="confirmDelete"
-            class="bg-red-400 text-white rounded py-2 px-4 hover:bg-red-500"
+            class="w-full bg-red-400 text-white rounded py-2 px-4 hover:bg-red-500"
             :class="{'opacity-50 cursor-not-allowed': disabled}"
             :disabled="disabled"
     >

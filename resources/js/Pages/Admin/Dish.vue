@@ -1,33 +1,31 @@
 <template>
-    <div class="m-6 rounded-lg shadow-md">
-        <div class="flex flex-col items-center">
-            <div class="my-6">
-                <InputText v-model="form.title" name="Titre" :error="form.errors.title"/>
-            </div>
+    <div class="m-6 mt-12 bg-white rounded p-10 lg:w-1/3 lg:mx-auto">
+        <div class="my-6">
+            <InputText v-model="form.title" name="Titre" :error="form.errors.title"/>
+        </div>
 
-            <div class="my-6">
-                <InputText v-model="form.description" name="Description" :error="form.errors.description"/>
-            </div>
+        <div class="my-6">
+            <InputText v-model="form.description" name="Description" :error="form.errors.description"/>
+        </div>
 
-            <div class="my-6">
-                <InputNumber v-model="form.price" name="Prix" :error="form.errors.price"/>
-            </div>
+        <div class="my-6">
+            <InputNumber v-model="form.price" name="Prix" :error="form.errors.price"/>
+        </div>
 
-            <div class="my-6">
-                <InputSelect v-model="form.restaurant_carte_id" :values="cartes" name="Carte" />
-            </div>
+        <div class="my-6">
+            <InputSelect v-model="form.restaurant_carte_id" :values="cartes" name="Carte" />
+        </div>
 
 
-            <div class="my-6">
-                <InputSelect v-model="form.dish_category_id" :values="categories" name="Catégorie" />
-            </div>
-
+        <div class="my-6">
+            <InputSelect v-model="form.dish_category_id" :values="categories" name="Catégorie" />
+        </div>
 
 
 
-            <div class="flex flex-col space-y-4">
-                <ActionButtons :disabled="form.processing" @click="submit" @delete="deleteDish"/>
-            </div>
+
+        <div class="flex flex-col space-y-4">
+            <ActionButtons :disabled="form.processing" @click="submit" @delete="deleteDish"/>
         </div>
     </div>
 </template>

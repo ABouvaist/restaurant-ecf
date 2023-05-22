@@ -7,11 +7,11 @@
 
     <input
         :disabled="disabled"
-        type="text"
+        :type="type"
         :id="slug"
         v-model="modelValue"
         @input="$emit('update:modelValue', $event.target.value)"
-        class="border rounded p-2 w-full"
+        class="border border-charcoal rounded p-2 w-full"
         :required="required"
     >
 
@@ -45,6 +45,11 @@ const props = defineProps({
         required: false,
         default: false
     },
+    type: {
+        type: String,
+        required: false,
+        default: 'text'
+    }
 })
 
 defineEmits(['update:modelValue']);

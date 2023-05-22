@@ -65,33 +65,29 @@ const removeInterval = (day, index) => {
 <template>
     <OpeningHours></OpeningHours>
 
-    <div class="overflow-scroll rounded-lg border border-gray-200 shadow-md m-5">
+    <div class="m-6 mt-12 bg-white rounded p-10 lg:w-2/3 lg:mx-auto flex flex-col items-center gap-4">
         <h2 class="w-full text-center my-3">Modifier les horaires d'ouverture</h2>
 
-        <div class="grid grid-cols-4 gap-4">
-            <template v-for="(time, day) in form.data()" :key="`edit_${day}`">
-                <label class="col-start-1 col-span-1">{{daysInFrench[day]}}</label>
+        <div class="grid grid-cols-5 gap-4 rounded p-6 even:bg-platinum justify-items-center items-center odd:bg-powder-blue" v-for="(time, day) in form.data()" :key="`edit_${day}`" >
+              <label class="col-start-1 col-span-1">{{daysInFrench[day]}}</label>
 
 
                 <template v-for="(interval, index) in time">
-                    <input type="time" class="col-start-2 col-span-1" :value="start(interval)" @input="setStart(day, index, $event.target.value)">
-                    <input type="time" class="col-span-1" :value="end(interval)" @input="setEnd(day, index, $event.target.value)">
-                    <div class="col-span-1" @click="removeInterval(day, index)">
+                    <input type="time" class="col-start-2 col-span-1 w-full" :value="start(interval)" @input="setStart(day, index, $event.target.value)">
+                    -
+                    <input type="time" class="col-span-1 w-full" :value="end(interval)" @input="setEnd(day, index, $event.target.value)">
+                    <div class="col-span-1 cursor-pointer text-moonstone" @click="removeInterval(day, index)">
                         Supprimer
                     </div>
                 </template>
 
-                <div class="col-start-2 col-span-2" @click="addInterval(day)">
+                <div class="col-start-2 col-span-2 cursor-pointer text-moonstone" @click="addInterval(day)">
                     Ajouter un intervalle
                 </div>
-
-
-
-            </template>
         </div>
 
 
-        <SubmitButton @click="submit">Sauvegarder les modifications</SubmitButton>
+        <SubmitButton class="mt-6 w-2/3 m-auto" @click="submit">Sauvegarder les modifications</SubmitButton>
     </div>
 
 </template>

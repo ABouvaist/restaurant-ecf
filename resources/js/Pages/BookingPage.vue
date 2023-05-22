@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent="submit" class="m-6 bg-white p-3 rounded" >
+    <div class="m-6 relative bg-white p-10 rounded lg:w-1/2 lg:mx-auto" >
         <div class="mb-6">
             <InputText v-model="form.first_name" name="Prénom" :error="form.errors.first_name" required :disabled="isLogged"/>
         </div>
@@ -25,7 +25,7 @@
                 lang="fr"
                 id="date"
                 v-model="form.day"
-                class="border rounded p-2 w-full"
+                class="border border-charcoal rounded p-2 w-full"
                 :required="true"
             >
 
@@ -42,17 +42,17 @@
                 id="time"
                 v-model="form.time"
                 pattern="\d{2}-\d{2}-\d{4}"
-                class="border rounded p-2 w-full"
+                class="border border-charcoal rounded p-2 w-full"
                 :required="true"
             >
 
             <div v-if="form.errors.time" v-text="form.errors.time" class="text-red-500 text-xs mt-1"></div>
         </div>
-        <div class="mb-6">
-            <button type="submit" class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500" :disabled="form.processing">Réserver</button>
+        <div>
+            <SubmitButton :processing="form.processing" @click="submit">Réserver</SubmitButton>
             <div v-if="$page.props.errors.noRoom" v-text="$page.props.errors.noRoom" class="text-red-500 text-xs mt-1"></div>
         </div>
-    </form>
+    </div>
 </template>
 
 <script setup>
@@ -60,6 +60,7 @@ import {useForm} from "@inertiajs/vue3";
 import InputText from "@/Components/Inputs/InputText.vue";
 import InputNumber from "@/Components/Inputs/InputNumber.vue";
 import {computed} from "vue";
+import SubmitButton from "@/Components/Admin/SubmitButton.vue";
 
 const props = defineProps({
     user: {

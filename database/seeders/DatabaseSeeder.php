@@ -26,14 +26,14 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        User::factory()
+        /*User::factory()
             ->count(1)
             ->testClient()
             ->create();
 
         RestaurantMenu::factory()
             ->count(10)
-            ->hasMenuFormulas(3)
+            ->hasMenuFormulas(7)
             ->create();
 
         $categories = DishCategory::factory()
@@ -53,7 +53,7 @@ class DatabaseSeeder extends Seeder
                 ->create();
         });
 
-        Image::factory(10)->create();
+        Image::factory(10)->create();*/
 
         OpeningHours::factory(1)->create();
     }

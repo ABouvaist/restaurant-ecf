@@ -1,5 +1,5 @@
 <template>
-    <div class="m-6 rounded-lg shadow-md">
+    <div class="m-6 mt-12 bg-white rounded p-10 lg:w-1/3 lg:mx-auto">
         <div class="flex flex-col items-center">
             <h1 class="text-xl mb-6">{{ image.title }}</h1>
             <img :src="`/${image.url}`" :alt="image.title">
@@ -8,9 +8,8 @@
                 <InputText v-model="form.title" name="Titre" :error="form.errors.title"/>
             </div>
 
-            <div class="flex flex-col space-y-4">
-                <button type="submit" class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500" :disabled="form.processing" @click="submit">Enregistrer</button>
-                <button class="bg-red-400 text-white rounded py-2 px-4 hover:bg-red-500" @click="deleteImage">Supprimer</button>
+            <div class="space-y-4">
+                <ActionButtons :disabled="form.processing" @submit="submit" @delete="deleteImage"/>
             </div>
         </div>
     </div>
@@ -20,6 +19,7 @@
 <script setup>
 import {useForm, router} from "@inertiajs/vue3";
 import InputText from "@/Components/Inputs/InputText.vue";
+import ActionButtons from "@/Components/Admin/ActionButtons.vue";
 
 const props = defineProps({
     image: {

@@ -26,7 +26,7 @@ const submit = () => {
 </script>
 
 <template>
-    <div class="m-6 rounded-lg shadow-md">
+    <div class="m-6 mt-12 bg-white rounded p-10 lg:w-1/3 lg:mx-auto">
         <div class="my-6">
             <InputText v-model="form.name" name="Titre" :error="form.errors.name"/>
         </div>

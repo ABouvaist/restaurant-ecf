@@ -1,26 +1,24 @@
 <template>
-    <div class="m-6 rounded-lg shadow-md">
-        <div class="flex flex-col items-center">
-            <div class="my-6">
-                <InputText v-model="form.name" name="Nom" :error="form.errors.name"/>
-            </div>
+    <div class="m-6 mt-12 bg-white rounded p-10 lg:w-1/3 lg:mx-auto">
+        <div class="my-6">
+            <InputText v-model="form.name" name="Nom" :error="form.errors.name"/>
+        </div>
 
 
-            <div class="flex flex-col space-y-4">
-                <ActionButtons :disabled="form.processing" @submit="submit" @delete="deleteCarte"/>
-            </div>
+        <div class="flex flex-col space-y-4">
+            <ActionButtons :disabled="form.processing" @submit="submit" @delete="deleteCarte"/>
         </div>
     </div>
 
-    <div class="overflow-scroll rounded-lg border border-gray-200 shadow-md m-5">
+    <div class="overflow-scroll rounded-lg border bg-powder-blue shadow-md m-5">
         <h2 class="w-full text-center my-3">Plats</h2>
         <table v-if="carte.dishes.length > 0" class="w-full border-collapse bg-platinum text-left text-sm text-charcoal">
-            <thead class="bg-gray-50">
-            <tr>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Titre</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Description</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Prix</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Actions</th>
+            <thead>
+            <tr class="font-bold">
+                <th scope="col" class="px-6 py-4 text-gray-900">Titre</th>
+                <th scope="col" class="px-6 py-4 text-gray-900">Description</th>
+                <th scope="col" class="px-6 py-4 text-gray-900">Prix</th>
+                <th scope="col" class="px-6 py-4 text-gray-900">Actions</th>
             </tr>
             </thead>
             <tbody class="divide-y divide-gray-100 border-t border-gray-100">

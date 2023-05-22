@@ -13,5 +13,9 @@ import AdminNav from "@/Components/Admin/AdminNav.vue"
 </script>
 
 <style scoped>
-
+main {
+    font-family: 'Nunito', sans-serif;
+    height: 100%;
+    padding-bottom: 10px;
+}
 </style>

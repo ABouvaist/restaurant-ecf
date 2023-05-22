@@ -1,16 +1,16 @@
 <template>
-    <div class="overflow-scroll rounded-lg border border-gray-200 shadow-md m-5">
+    <div class="overflow-scroll rounded-lg border bg-powder-blue border-gray-200 shadow-md m-5">
         <h2 class="w-full text-center my-3">Cartes</h2>
         <table class="w-full border-collapse bg-platinum text-left text-sm text-charcoal">
-            <thead class="bg-gray-50">
-            <tr>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Nom</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Visible</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Création</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Mise a jour</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Nb. de plats</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Nb. de catégories</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Actions</th>
+            <thead>
+            <tr class="font-bold">
+                <th scope="col" class="px-6 py-4 text-gray-900">Nom</th>
+                <th scope="col" class="px-6 py-4 text-gray-900">Visible</th>
+                <th scope="col" class="px-6 py-4 text-gray-900">Création</th>
+                <th scope="col" class="px-6 py-4 text-gray-900">Mise a jour</th>
+                <th scope="col" class="px-6 py-4 text-gray-900">Nb. de plats</th>
+                <th scope="col" class="px-6 py-4 text-gray-900">Nb. de catégories</th>
+                <th scope="col" class="px-6 py-4 text-gray-900">Actions</th>
             </tr>
             </thead>
             <tbody class="divide-y divide-gray-100 border-t border-gray-100">
@@ -34,14 +34,14 @@
 
     <AddButton :href="route('cartes.create')">Ajouter une carte</AddButton>
 
-    <div class="overflow-scroll rounded-lg border border-gray-200 shadow-md m-5">
+    <div class="overflow-scroll rounded-lg border bg-powder-blue border-gray-200 shadow-md m-5">
         <h2 class="w-full text-center my-3">Catégories</h2>
 
         <table class="w-full border-collapse bg-platinum text-left text-sm text-charcoal">
-            <thead class="bg-gray-50">
-            <tr>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Nom</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Actions</th>
+            <thead>
+            <tr class="font-bold">
+                <th scope="col" class="px-6 py-4 text-gray-900">Nom</th>
+                <th scope="col" class="px-6 py-4 text-gray-900">Actions</th>
             </tr>
             </thead>
             <tbody class="divide-y divide-gray-100 border-t border-gray-100">

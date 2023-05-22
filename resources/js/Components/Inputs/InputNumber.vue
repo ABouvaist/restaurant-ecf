@@ -10,7 +10,7 @@
         :id="slug"
         v-model="modelValue"
         @input="$emit('update:modelValue', $event.target.value)"
-        class="border rounded p-2 w-full"
+        class="border border-charcoal rounded p-2 w-full"
         required="required"
     >
 

@@ -1,5 +1,5 @@
 <template>
-    <nav class="pt-4">
+    <nav class="pt-4 bg-platinum shadow-xl pb-4">
         <ul class="flex justify-around">
             <li v-for="tab in tabs" :key="tab.id">
                 <Link :href="route(tab.route)">{{ tab.name }}</Link>
@@ -12,6 +12,11 @@
 import { Link } from '@inertiajs/vue3';
 
 const tabs = [
+    {
+        id: 'dashboard',
+        name: 'Dashboard',
+        route: 'admin.dashboard',
+    },
     {
         id: 'cartes_index',
         name: 'Cartes',

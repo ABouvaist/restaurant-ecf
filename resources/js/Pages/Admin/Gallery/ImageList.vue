@@ -1,13 +1,15 @@
 <template>
-    <div class="overflow-scroll rounded-lg border border-gray-200 shadow-md m-5">
+    <div class="overflow-scroll rounded-lg border bg-powder-blue border-gray-200 shadow-md m-5">
+        <h2 class="w-full text-center my-3">Gallerie d'images</h2>
+
         <table class="w-full border-collapse bg-platinum text-left text-sm text-charcoal">
-            <thead class="bg-gray-50">
+            <thead class="font-bold">
                 <tr>
-                    <th scope="col" class="px-6 py-4 font-medium text-gray-900">Titre</th>
-                    <th scope="col" class="px-6 py-4 font-medium text-gray-900">Visible</th>
-                    <th scope="col" class="px-6 py-4 font-medium text-gray-900">Actions</th>
-                    <th scope="col" class="px-6 py-4 font-medium text-gray-900">Création</th>
-                    <th scope="col" class="px-6 py-4 font-medium text-gray-900">Mise a jour</th>
+                    <th scope="col" class="px-6 py-4 text-gray-900">Titre</th>
+                    <th scope="col" class="px-6 py-4 text-gray-900">Visible</th>
+                    <th scope="col" class="px-6 py-4 text-gray-900">Actions</th>
+                    <th scope="col" class="px-6 py-4 text-gray-900">Création</th>
+                    <th scope="col" class="px-6 py-4 text-gray-900">Mise a jour</th>
                 </tr>
             </thead>
             <tbody class="divide-y divide-gray-100 border-t border-gray-100">

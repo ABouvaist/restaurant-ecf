@@ -8,7 +8,7 @@
         v-model="modelValue"
         :name="slug"
         :id="slug"
-        class="border rounded p-2 w-full"
+        class="border border-charcoal rounded p-2 w-full"
         @input="$emit('update:modelValue', parseInt($event.target.value))"
     >
         <option

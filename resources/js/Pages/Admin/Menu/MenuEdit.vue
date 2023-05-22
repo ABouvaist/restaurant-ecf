@@ -25,7 +25,7 @@ const deleteMenu = () => {
 </script>
 
 <template>
-    <div class="m-6 rounded-lg shadow-md">
+    <div class="m-6 mt-12 bg-white rounded p-10 lg:w-1/3 lg:mx-auto">
         <div class="my-6">
             <InputText v-model="form.title" name="Titre" :error="form.errors.title"/>
         </div>
@@ -35,14 +35,16 @@ const deleteMenu = () => {
         </div>
     </div>
 
-    <div class="overflow-scroll rounded-lg border border-gray-200 shadow-md m-5">
+    <div class="overflow-scroll rounded-lg border bg-powder-blue border-gray-200 shadow-md m-5">
+        <h2 class="w-full text-center my-3">Formules</h2>
+
         <table class="w-full border-collapse bg-platinum text-left text-sm text-charcoal">
-            <thead class="bg-gray-50">
+            <thead class="font-bold">
             <tr>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Nom</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Description</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Prix</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Actions</th>
+                <th scope="col" class="px-6 py-4 text-gray-900">Nom</th>
+                <th scope="col" class="px-6 py-4 text-gray-900">Description</th>
+                <th scope="col" class="px-6 py-4 text-gray-900">Prix</th>
+                <th scope="col" class="px-6 py-4 text-gray-900">Actions</th>
             </tr>
             </thead>
             <tbody class="divide-y divide-gray-100 border-t border-gray-100">
