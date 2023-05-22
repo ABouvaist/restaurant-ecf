@@ -1,5 +1,5 @@
 <template>
-    <main class="container min-h-screen bg-platinum">
+    <main class="w-screen min-h-screen bg-platinum">
         <Nav/>
         <AdminNav/>
 
