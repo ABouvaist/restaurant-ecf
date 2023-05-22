@@ -4,7 +4,9 @@
             <InputText v-model="form.name" name="Nom de la catégorie :" :error="form.errors.name" />
         </div>
 
-        <ActionButtons :disabled="form.processing" @submit="submit" @delete="deleteCategory" />
+        <div class="space-y-4">
+            <ActionButtons :disabled="form.processing" @submit="submit" @delete="deleteCategory" />
+        </div>
     </div>
 </template>
 

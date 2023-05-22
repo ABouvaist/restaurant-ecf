@@ -39,7 +39,7 @@ const allergiesList = computed({
 </script>
 
 <template>
-    <div class="overflow-scroll rounded-lg border border-gray-200 shadow-md m-5">
+    <div class="m-6 mt-12 bg-white rounded p-10 lg:w-1/3 lg:mx-auto">
         <div class="my-6">
             <InputText v-model="form.first_name" name="Prénom :" :error="form.errors.first_name" />
         </div>
