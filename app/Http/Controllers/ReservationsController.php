@@ -84,13 +84,13 @@ class ReservationsController extends Controller
         }
 
 
-        //Check if there is enough space
         $guestLimit = User::whereRole(User::ADMIN)->first()->max_guests;
 
+        //Check if there is enough room in a 15 minutes range around the time of the reservation.
         $guests = Reservation::query()
                 ->whereDate('date', $validated['day'])
-                ->whereTime('time', '>', Carbon::make($validated['time'])?->subHour()->format('H:i'))
-                ->whereTime('time', '<', Carbon::make($validated['time'])?->addHour()->format('H:i'))
+                ->whereTime('time', '>', Carbon::make($validated['time'])?->subMinutes(7)->format('H:i'))
+                ->whereTime('time', '<', Carbon::make($validated['time'])?->addMinutes(7)->format('H:i'))
                 ->sum('number_of_guests') + $validated['number_of_guests'];
 
 
