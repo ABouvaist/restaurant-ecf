@@ -15,7 +15,6 @@ module.exports = {
                 'powder-blue': '#a9bcd0ff',
                 'moonstone': '#58a4b0ff',
                 'charcoal': '#373f51ff',
-                'melon': '#daa49aff',
             }
         }
     }
